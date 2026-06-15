@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Main</title>
+</head>
+<body class="bg-image  d-flex justify-content-center align-items-center vh-100"
+      style="font-family: 'Raleway', sans-serif;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            ">
+    <div class="row">
+        <div class="col col-lg-1"></div>
+        <div class="col">
+            <div class="container border rounded p-4 px-2 shadow" style="backdrop-filter: blur(5px);">
+                <h1 class="text-center">Google Sheet Management</h1><br>
+                    <div class="container text-center">
+                        <form method="post" action='/ggsheetapimain'>
+                            <div class="row mb-3"> <!-- Google Sheet URL -->
+                                <div class="col">
+                                    <label for="googlesheetURL" class="form-label">Google Sheet URL</label>
+                                </div>
+                                <div class="col">
+                                    <input type="url" name="sheetURL" class="form-control" id="googlesheetURL" value="{{SHEETURL}}">
+                                </div>
+                            </div>
+                            <div class="row mb-3"> <!-- Actions -->
+                                <div class="col">
+                                    <label for="actions" class="form-label">Actions</label>
+                                </div>
+                                <div class="col">
+                                    <select name="action" class="form-select" id="actions" onchange="this.form.submit()">
+                                        <option value="0">Choose action</option>
+                                        <option value="1">Create</option>
+                                        <option value="2">Update</option>
+                                        <option value="3">Read</option>
+                                        <option value="4">Delete</option>
+                                    </select>
+                                </div>
+                            </div>
+                            {{EMAIL}}
+                            {{NAME}}
+                            {{UPDATENAME}} <!-- hiện ra sau khi người dùng nhập email (Update action)-->
+                            {{NOTIFICATION}}
+                            {{FETCH}}
+                        </form>
+                    </div>
+            </div>
+        </div>
+        <div class="col col-lg-1"></div>
+    </div>
+
+</body>
+</html>
